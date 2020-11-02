@@ -1,0 +1,4 @@
+--In the unit slot, start() filter, append the following line anywhere that does not interfere with existing code:
+
+
+system.showScreen(1)
