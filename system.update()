@@ -3,9 +3,28 @@ In the system slot, update() filter, append the following anywhere that does not
 
 --Hover Display
 local HUD = ''
-local height = hover.distance()
-if height > 0 and height <= 38 then HUD = HUD..[[<div style="height:5%;width:100%;position:absolute;bottom:0;left:0;background:linear-gradient(to bottom, rgba(0,0,255,0), rgba(0,0,255,0.2));text-align:center;">Hover Altitude: ]]..math.floor(height)..[[m</div>]] end
-if height > 38 then HUD = HUD..[[<div style="height:5%;width:100%;position:absolute;bottom:0;left:0;background:linear-gradient(to bottom, rgba(255,0,0,0), rgba(255,0,0,0.2));text-align:center;">Hover Altitude: ]]..math.floor(height)..[[m</div>]] end
-
+if hover.distance() > 0 and hover.distance() <= 38 then
+    HUD = HUD..[[<div style="
+    height:5%;
+    width:100%;
+    position:absolute;
+    bottom:0;
+    left:0;
+    background:linear-gradient(to bottom, rgba(0,0,255,0), rgba(0,0,255,0.2));
+    text-align:center;">
+    Hover Altitude: ]]..math.floor(hover.distance())..[[m
+    </div>]]
+elseif hover.distance() > 38 then 
+    HUD = HUD..[[<div style="
+    height:5%;
+    width:100%;
+    position:absolute;
+    bottom:0;
+    left:0;
+    background:linear-gradient(to bottom, rgba(255,0,0,0), rgba(255,0,0,0.2));
+    text-align:center;">
+    Hover Altitude: ]]..math.floor(hover.distance())..[[m
+    </div>]]
+end
 
 system.setScreen(HUD)
